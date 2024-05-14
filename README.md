@@ -1,7 +1,6 @@
 # Kostull
  
 Kostull is a C++ project for fast startup of new projects.  
-[PyKosbot](https://github.com/adamaske/PyKosbot) is an example for interfacing with Kosbot from python. 
 
 # TODO
 - [ ] How to turn this into a nice git submodule
