@@ -1,4 +1,4 @@
-file(GLOB SRCS "${CMAKE_CURRENT_SOURCE_DIR}/Source/*.cpp")
+file(GLOB SRCS "${CMAKE_CURRENT_SOURCE_DIR}/Source/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/Source/*.c")
 file(GLOB INCS "${CMAKE_CURRENT_SOURCE_DIR}/Include/*.h")
 
 add_library(Graphics STATIC ${SRCS})
