@@ -377,6 +377,7 @@ int Server::Write(std::shared_ptr<TCPConnection> tcp, WSAPOLLFD fd) {
 		pm->current_task = ProcessPacketSize;
 		pm->Pop(); // Discard the current packet
 
+		return NETWORK_SUCCESS;
 	}
 }
 
