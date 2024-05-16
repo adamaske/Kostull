@@ -9,7 +9,11 @@ int main(int argc, char** argv) {
 	Logger::Initalize(Logger::L_INFO, Logger::L_CONSOLE);
 	Networking::Intialize();
 
-	Logger::Info("Welcome To Kostull");
+	Logger::Info("Welcome To Kostull Testing!");
+
+	Logger::RegisterCallback([](const Logger::Log log) { 
+		std::cout << "MAIN CPP : " << log.payload << "\n"; 
+		});
 
 	Graphics graphics;
 	graphics.Init("Kostull");

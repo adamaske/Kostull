@@ -3,21 +3,18 @@
 #include <iostream>
 
 #include "Logger.h"
-void LoggerWindow::LoggerWindowCallback() {
-   
-}
 
 LoggerWindow::LoggerWindow() {
-
-    Logger::RegisterCallback([this](const Logger::Log log) {
-
-        std::string text = log.payload;
     
+    Logger::RegisterCallback([this](const Logger::Log log) {
+        std::string text = log.payload;
         va_list args = { };
         buf.appendfv(text.c_str(), args);
-    
         scroll_to_bottom = true;
     });
+
+    auto* sd = &Logger::log_callback_functions;
+    std::cout << "LOGGWER WINDWO : " << sd << "\n";
 }
 
 int LoggerWindow::Render()
@@ -58,4 +55,5 @@ void LoggerWindow::Clear()
 {
 	buf.clear(); 
 	line_offsets.clear();
+    Logger::Info("Logger Window Cleared");
 }

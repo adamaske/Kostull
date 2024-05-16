@@ -10,8 +10,6 @@ public:
 
 	LoggerWindow();
 
-	void LoggerWindowCallback();
-
 	int Render() override;
 
 	void Clear();

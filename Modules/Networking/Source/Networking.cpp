@@ -16,6 +16,9 @@ bool Intialize()
 {
     int err = 0;
 
+    auto* sd = &Logger::log_callback_functions;
+    std::cout << "NETWORK : " << sd << "\n";
+
     WSADATA wsaData;
     err = WSAStartup(MAKEWORD(2, 2), &wsaData);
     if (err != 0) {

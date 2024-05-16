@@ -17,7 +17,7 @@
 #include "imgui_impl_opengl3.h"
 
 #include "spdlog/spdlog.h"
-
+#include "Logger.h"
 
 static void glfw_error_callback(int error, const char* description)
 {
@@ -44,6 +44,9 @@ Graphics::~Graphics() {
 
 int Graphics::Init(std::string title) {
 
+
+    auto* sd = &Logger::log_callback_functions;
+    std::cout << "GRAPHICS INIT: " << sd << "\n";
     if (glfwInit() != GLFW_TRUE) {
         spdlog::error( "GLFW Init failed.");
         return 0;
@@ -86,7 +89,9 @@ int Graphics::Init(std::string title) {
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
 
-    AppendGUIWindow(std::make_shared<LoggerWindow>());
+    //Logger Window
+    auto lw = std::make_shared<LoggerWindow>();
+    AppendGUIWindow(lw);
 
     return 1;
 }
